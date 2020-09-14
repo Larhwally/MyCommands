@@ -1,0 +1,178 @@
+~ git config --global http.proxy http://asoju.unilag.edu.ng:3128
+~ git config --list |grep proxy : grep (global regular expression print):process text  line by line and prints specific line passed *proxy*
+~ mkdir : create a foler
+~ cd : change director
+~ git init : initialize new repo
+~ git remote set-url
+~ git remote -v : shows the origin of the repo
+~ git show-ref : shows branch 
+~ git push origin HEAD:master
+~ git config --list : to see GIT settings
+~ git config --global credential.helper wincred: to change a GIT setting
+~ git commit -m "" : to add a commit and a msg
+~ git add . : to add the files to be committed | git commit | git push 
+*for an existing git repo  folder*
+~ rm -rf filename : to remove a file from the repo
+~ ls : list out the file in a repo
+~ git pull origin master : to pull origin master before pushing
+~ git status : to view the status of files in a repo
+~ git pull origin master --allow-unrelated-histories : pull origin master and avoiding unrelated histories error
+~ git remote add origin https:// : to add origin of a repo; thereby connecting a github repo to your local machine
+~ git gc :Runs a number of housekeeping tasks within the current repository, such as compressing file revisions (to reduce disk space and increase performance) and removing unreachable 
+objects which may have been created from prior invocations of git add.
+~ git checkout -b 'branch name' : creates and switched  to a different branch in a  repo
+~ git branch -a: list all branches in local and remote repositories
+~ git branch -r: only listing the remote branches
+~ git show-branch: ommand for seeing the branches and their commits 
+~ git commit --amend: correct commit message 
+~ git fetch :  command downloads commits, files, and refs from a remote repository into your local repo. 
+~ git branch : create, list, rename, and delete branches
+~ git log --oneline : Each commit, with the date and author + the commit message
+~ git reset --hard 9043cc :  reset repo back to a specific  commit
+~ git rm -rf .git : remove a git  repo from a folder so as to init another .git
+~ 3 steps of push to an existing repo
+	=> git remote add origin master
+	=> git pull origin master --allow-unrelated-histories
+	=> git push origin  master 
+~ A slightly less scary way to do this than the git reset --hard method is to create a new branch. Let's assume that you're on the master branch and the commit you want to go back to is c2e7af2b51.
+
+Rename your current master branch:
+
+git branch -m crazyexperiment
+Check out your good commit:
+
+git checkout c2e7af2b51
+Make your new master branch here:
+
+git checkout -b master
+Now you still have your crazy experiment around if you want to look at it later, but your master branch is back at your last known good point, ready to be added to. If you really want to throw away your experiment, you can use:
+
+git branch -D crazyexperiment
+
+Ubuntu/Linux Server codes (root pwd:ellnerd22) (lawal pwd:password00)*new db: unilagmedicdb* 
+*quick tip*: on every db user you have on mysql on a server maintain one table with thesame schema***
+-----------------------------------------
+~ ssh username@IP : to login in  to a remote server
+~ sudo lsof : list of open files
+~ sudo rm - rf directory/file to be deleted
+~ sudo. vim - Allows one to edit a file with privileges from an unprivileged session
+~ sudo systemctl - control the systemd(demons)  background process system and service 
+~ sudo  systemctl start|stop|restart kestrel-unimed.service   :  used  to  start  kestrel  server to  run our program
+~ sudo cp :  for copying file  || sudo cat : open a file/concatenate files || sudo ls: for list
+~ sudo  cp -r * "to location" : copy a file the active directory to a specified location
+~ SCP "a file location" remote  server username@IP : "Location of drop location  on the server  | SCP desktop/file.exe server@IP:/Home/location
+~ SCP can also be used reversely to copy a file from the server to local machine: SCP username@IP:/file location /local machine loactions to save file
+~ tail  file.exe -n 10 : show 10 lines in the file.exe
+~ cd / to  go to root directory of a server
+~ ls -a: show  all in files in directory
+~ df -h : gives yousizeof the directory on  yourserver | 
+~ sudo du -sh ~/  : gives you the size  of the server home directory
+~ sudo apt install 'appname' : install of app on your server
+~ sudo apt remove --purge 'appname' : uninstall an app
+~ sudo journalctl -u mysql.service : view full report on a mysql service
+~ sudo journalctl --since 01:25 -u kestrel-unimed.service
+~  git pull origin master (cd into the folder you  want to pull to) | dotnet publish|cd into publish folder and copy sudo cp * -r to /var/www/unimed | dotnet run inside project folder to start application and listen to client request
+~ import an exported db (.sql) on the server from mysql-> 1| create or use db; 2| source file.sql; "the directory of the .sql file on the server"
+~ import an exported db (.sql) on the server: mysql -u username -p database_name < /path/to/file.sql
+~ drop database dbname: to delete a db || \q to quit mysql mode
+~ sudo passwd: to change password  for unix (Ellnerd@22)
+~ service --status-all : to view all installed services
+~ timedatectl status: view the time on the ubuntu server
+~ SHOW ENGINE INNODB STATUS;to show foreign key error
+~ ALTER TABLE `tbl_vitalsigns` ADD CONSTRAINT `constraintname` FOREIGN KEY (`assignedTo`) REFERENCES `unilag_medic`.`tbl_vitalsigns`(`itbId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+~ Desc table_name : to show table columns and datatypes 
+~ select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS; : to show all relationship btw tables
+~ show create table table_name: show the schema of the specified table.
+~ alter table table_name drop constraintname: to remove foreign key constraint
+~ type NUL > file.txt : to create a file in windows command line like touch for ubuntu
+~ SELECT COUNT(tbl_patient.itbId) AS Total_Patient,
+SUM(tbl_patient.patientType = 1) AS staff_patient, SUM(tbl_patient.patientType = 2) AS student_patient FROM tbl_patient;
+
+~ SELECT COUNT(tbl_patient.itbId) AS Total_Patient,
+SUM(CASE WHEN tbl_patient.patientType = 1 THEN 1 ELSE 0 END) AS staff_patient, SUM(CASE WHEN tbl_patient.patientType = 2 THEN 1 ELSE 0 END) AS student_patient FROM tbl_patient
+-------------------------------------------------------------
+
+	Unrelated
+-------------------------------------------------------------
+~ do "index of <tv show>" on google home pageto watch and download any tv series online
+
+		C# ARRAY
+		---------
+	    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[10];
+            int i;
+            Console.Write("Read and Print elements in an  array:\n");
+            Console.Write("--------------------------------------\n");
+
+            Console.Write("Input 10 elements in the array:\n");
+            for (i = 0; i < 10; i++)
+            {
+                Console.Write("element - {0} : ", i); //"element - {0} array element format"
+                arr[i] =Convert.ToInt32(Console.ReadLine());
+            }
+
+            Console.Write("\n ELements in the  array are: ");
+            for (i = 0; i < 10; i++)
+            {
+                Console.Write("{0} ", arr[i]);
+            }
+            Console.ReadLine();
+        }
+    }
+
+--------------------
+using System.Collections.Generic;
+
+public class Kata
+{
+  public static string DuplicateEncode(string word)
+  {
+    word =  word.ToLower();
+  string r = ")";
+  string l = "(";
+          Dictionary <char, int> freq = new Dictionary<char, int>();
+        foreach(char c in word)
+        {
+          if  (!freq.ContainsKey(c)) {
+            freq.Add(c, 1);
+          } else {
+            freq[c] = freq[c] +1;
+          }
+        }
+        
+        string result = "";
+        
+        foreach (char c in word) {
+           int  f = freq[c];
+           if (f  == 1) {
+             result += l;
+          } else {
+            result += r;
+            }
+        }
+        
+        return result;
+   
+  }
+}
+incorrect prefix key; the used part isn't a string, the used length is longer than the key part, or the storage engine doesn't support unique prefix keys
+
+#split string
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	    string date = DateTime.Now.ToString();
+		string[] newdate = date.Split(' ');
+		Console.WriteLine(newdate[0]);
+	}
+}
+
+Thank you for your interest in applying to Postgraduate application form.
+Your Payment Reference Number is 300720253724
